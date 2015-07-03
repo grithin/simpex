@@ -61,9 +61,10 @@ token types
 	5:other
 */
 (function($){
+	var exports = {}
 	///compatibility with nodejs
-	if(typeof(exports)=='undefined'){
-		var exports = {}
+	if(typeof(module)!='undefined'){
+		module.exports = exports
 	}
 	exports.makeTail = function(tokens,addToken){
 		token = tokens.pop()
@@ -221,7 +222,7 @@ token types
 		define(exports)
 	}*/
 	///as a jquery extension
-	if(typeof($) != 'undefined'){
+	if($){
 		$.fn.simpex = function(options){
 			options = $.extend( {}, $.fn.simpex.defaults, options );
 			return this.each(function(){
@@ -229,4 +230,4 @@ token types
 				$(this).html(options.formatter(tokens, options.classMap))	})	}
 		$.extend($.fn.simpex, exports);
 	}
-})(jQuery)
+})((typeof(jQuery) != 'undefined' && jQuery) || false)
