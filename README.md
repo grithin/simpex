@@ -62,6 +62,7 @@ Function|Params|Description
 ---|---|---
 $.fn.simpex.tokeniseStringPattern|string|Makes the tokens
 $.fn.simpex.formatter|tokens,options|Does the formatting
+$.fn.simpex.format|text,options|Formats a string and returns html
 ## Syntax Rules
 -	Enclose strings in single quotes
 -	Use \\.comment.\ to enclose variable length comments

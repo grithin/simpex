@@ -216,6 +216,11 @@ token types
 			5:'simpex_other'},
 		formatter: exports.formatTokens	}
 
+	exports.format = function(text, options){
+		options = $.extend( {}, $.fn.simpex.defaults, options );
+		var tokens = exports.tokeniseStringPattern(text)
+		return options.formatter(tokens, options.classMap)
+	}
 
 	///compatibility with requirejs
 	/*if(typeof(define) != 'undefined'){
